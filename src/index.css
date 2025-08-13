@@ -8,33 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 45 15% 97%;
+    --foreground: 25 15% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 15% 97%;
+    --card-foreground: 25 15% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 15% 97%;
+    --popover-foreground: 25 15% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* AgTech green primary */
+    --primary: 120 60% 15%;
+    --primary-foreground: 45 15% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Rich earth secondary */
+    --secondary: 35 25% 25%;
+    --secondary-foreground: 45 15% 97%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted earth tones */
+    --muted: 35 15% 88%;
+    --muted-foreground: 35 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gold accent */
+    --accent: 45 95% 50%;
+    --accent-foreground: 25 15% 8%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 45 15% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 15% 85%;
+    --input: 35 15% 85%;
+    --ring: 120 60% 15%;
+
+    /* AgTech specific colors */
+    --agtech-green: 120 60% 15%;
+    --agtech-green-light: 120 40% 25%;
+    --agtech-gold: 45 95% 50%;
+    --agtech-gold-light: 45 85% 70%;
+    --earth-brown: 25 30% 20%;
+    --earth-tan: 35 25% 65%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 60% 15%), hsl(35 25% 25%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 95% 50%), hsl(45 85% 60%));
+    --gradient-earth: linear-gradient(180deg, hsl(35 25% 25%), hsl(25 30% 20%));
 
     --radius: 0.5rem;
 
@@ -101,5 +118,60 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Scroll animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* Hero gradient text */
+  .gradient-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* CTA button styles */
+  .cta-button {
+    background: var(--gradient-gold);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px -10px hsl(var(--agtech-gold) / 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px hsl(var(--agtech-gold) / 0.4);
+  }
+
+  /* Feature card styles */
+  .feature-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -20px hsl(var(--agtech-green) / 0.2);
   }
 }
