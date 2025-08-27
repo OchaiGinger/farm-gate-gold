@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import TechnologySection from '@/components/TechnologySection';
 import TeamSection from '@/components/TeamSection';
 import SuccessSection from '@/components/SuccessSection';
 import CTASection from '@/components/CTASection';
@@ -37,7 +36,6 @@ const Index = () => {
       <HeroSection />
       <ProblemSection />
       <FeaturesSection />
-      <TechnologySection />
       <TeamSection />
       <SuccessSection />
       <CTASection />

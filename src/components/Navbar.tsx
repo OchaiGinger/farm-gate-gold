@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,11 +16,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#features', label: 'Features' },
-    { href: '#technology', label: 'Technology' },
-    { href: '#team', label: 'Team' },
-    { href: '#success', label: 'Success Stories' },
-    { href: '#contact', label: 'Join Us' },
+    { href: '#features', label: 'Features', type: 'anchor' },
+    { href: '/technology', label: 'Technology', type: 'link' },
+    { href: '#team', label: 'Team', type: 'anchor' },
+    { href: '#success', label: 'Success Stories', type: 'anchor' },
+    { href: '#contact', label: 'Join Us', type: 'anchor' },
   ];
 
   return (
@@ -36,15 +37,25 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => 
+                link.type === 'link' ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
@@ -72,16 +83,27 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block px-3 py-2 text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => 
+              link.type === 'link' ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="block px-3 py-2 text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block px-3 py-2 text-foreground hover:text-agtech-gold transition-colors duration-300 font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <div className="pt-2">
               <Button className="cta-button text-earth-brown font-semibold w-full">
                 <Phone className="w-4 h-4 mr-2" />
