@@ -5,7 +5,7 @@ import heroImage from '@/assets/hero-farmland.jpg';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -49,7 +49,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             className="cta-button text-earth-brown font-bold text-lg px-8 py-4 fade-in-up delay-500"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => window.location.href = '/contact'}
           >
             Transform Your Farm Today
             <ArrowRight className="ml-2 h-5 w-5" />

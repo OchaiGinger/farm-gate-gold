@@ -8,52 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 45 15% 97%;
-    --foreground: 25 15% 8%;
+    /* Clean modern color scheme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
 
-    --card: 45 15% 97%;
-    --card-foreground: 25 15% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
 
-    --popover: 45 15% 97%;
-    --popover-foreground: 25 15% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
 
-    /* AgTech green primary */
-    --primary: 120 60% 15%;
-    --primary-foreground: 45 15% 97%;
+    /* Modern AgTech green primary */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
-    /* Rich earth secondary */
-    --secondary: 35 25% 25%;
-    --secondary-foreground: 45 15% 97%;
+    /* Sophisticated secondary */
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    /* Muted earth tones */
-    --muted: 35 15% 88%;
-    --muted-foreground: 35 8% 45%;
+    /* Clean muted tones */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Gold accent */
-    --accent: 45 95% 50%;
-    --accent-foreground: 25 15% 8%;
+    /* Vibrant gold accent */
+    --accent: 47 96% 53%;
+    --accent-foreground: 26 83% 14%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 15% 97%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 35 15% 85%;
-    --input: 35 15% 85%;
-    --ring: 120 60% 15%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
 
-    /* AgTech specific colors */
-    --agtech-green: 120 60% 15%;
-    --agtech-green-light: 120 40% 25%;
-    --agtech-gold: 45 95% 50%;
-    --agtech-gold-light: 45 85% 70%;
-    --earth-brown: 25 30% 20%;
-    --earth-tan: 35 25% 65%;
+    /* Modern AgTech specific colors */
+    --agtech-green: 142 76% 36%;
+    --agtech-green-light: 142 69% 58%;
+    --agtech-green-dark: 142 85% 25%;
+    --agtech-gold: 47 96% 53%;
+    --agtech-gold-light: 48 95% 76%;
+    --earth-brown: 26 83% 14%;
+    --earth-tan: 39 77% 83%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(120 60% 15%), hsl(35 25% 25%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 95% 50%), hsl(45 85% 60%));
-    --gradient-earth: linear-gradient(180deg, hsl(35 25% 25%), hsl(25 30% 20%));
+    /* Modern gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 85% 25%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(47 96% 53%) 0%, hsl(45 93% 47%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(26 83% 14%) 0%, hsl(20 79% 17%) 100%);
+    --gradient-soft: linear-gradient(135deg, hsl(142 76% 36% / 0.05) 0%, hsl(47 96% 53% / 0.05) 100%);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -150,28 +153,43 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
   }
 
-  /* CTA button styles */
+  /* Modern CTA button styles */
   .cta-button {
     background: var(--gradient-gold);
     transform: translateY(0);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px -10px hsl(var(--agtech-gold) / 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 hsl(var(--agtech-gold) / 0.39);
+    border: 0;
   }
 
   .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px -10px hsl(var(--agtech-gold) / 0.4);
+    box-shadow: 0 8px 25px 0 hsl(var(--agtech-gold) / 0.5);
+    background: linear-gradient(135deg, hsl(47 96% 53%) 0%, hsl(45 93% 47%) 100%);
   }
 
-  /* Feature card styles */
+  /* Modern feature card styles */
   .feature-card {
     background: hsl(var(--card));
     border: 1px solid hsl(var(--border));
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.1);
   }
 
   .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px -20px hsl(var(--agtech-green) / 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -3px hsl(var(--agtech-green) / 0.1), 0 4px 6px -2px hsl(var(--agtech-green) / 0.05);
+    border-color: hsl(var(--agtech-green) / 0.2);
+  }
+
+  /* Modern section styles */
+  .section-gradient {
+    background: var(--gradient-soft);
+  }
+
+  .glass-card {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.5);
   }
 }

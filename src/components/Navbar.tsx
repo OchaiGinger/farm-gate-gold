@@ -16,16 +16,14 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#features', label: 'Features', type: 'anchor' },
+    { href: '/', label: 'Home', type: 'link' },
     { href: '/technology', label: 'Technology', type: 'link' },
-    { href: '#team', label: 'Team', type: 'anchor' },
-    { href: '#success', label: 'Success Stories', type: 'anchor' },
-    { href: '#contact', label: 'Join Us', type: 'anchor' },
+    { href: '/contact', label: 'Contact', type: 'link' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-xl border-b border-border/50' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -61,7 +59,10 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button className="cta-button text-earth-brown font-semibold px-6 py-2">
+            <Button 
+              className="cta-button text-earth-brown font-semibold px-6 py-2"
+              onClick={() => window.location.href = 'tel:+2348148327506'}
+            >
               <Phone className="w-4 h-4 mr-2" />
               Call Now
             </Button>
@@ -105,7 +106,10 @@ const Navbar = () => {
               )
             )}
             <div className="pt-2">
-              <Button className="cta-button text-earth-brown font-semibold w-full">
+              <Button 
+                className="cta-button text-earth-brown font-semibold w-full"
+                onClick={() => window.location.href = 'tel:+2348148327506'}
+              >
                 <Phone className="w-4 h-4 mr-2" />
                 Call 08148327506
               </Button>

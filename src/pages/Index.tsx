@@ -38,7 +38,6 @@ const Index = () => {
       <FeaturesSection />
       <TeamSection />
       <SuccessSection />
-      <CTASection />
     </div>
   );
 };
